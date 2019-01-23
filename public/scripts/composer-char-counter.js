@@ -9,7 +9,7 @@ $(function() {
   // tweetform.addEventListener('click', eventHandler);
   // tweetform.addEventListener('change', eventHandler);
   
-  // tweetform.addEventListener('keypress', eventHandler);
+  // tweetform.addEventListener('keypress', eventHandler);height: 
   tweetform.addEventListener('input', eventHandler);
 
 });
