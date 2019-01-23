@@ -1,0 +1,25 @@
+.tweet {
+ 
+  top: 80px;
+  border: 1px solid #a8a8a8;
+  border-radius: 10px;
+  margin: 0px 2em 0px 2em;
+  position: relative;
+  color: #244751;
+  background-color: #eee;
+  height: 12em;
+  z-index: 1;
+}
+
+article .logo {
+  border-radius: 5px;
+  margin: 10px 0px 0px 10px;
+}
+
+.tweet h2 {
+  border-style: solid;
+  border-width: 0px 0px 2px 0px;
+  /* padding-left: 15px;
+  padding-right: 15px; */
+  margin: 20px 20px 20px 20px;
+}

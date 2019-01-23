@@ -1,0 +1,80 @@
+/*
+ * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ * https://css-tricks.com/international-box-sizing-awareness-day/
+ * Do not modify these two selectors, please
+ */
+html {
+  box-sizing: border-box;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/*
+ * Global layout stuff
+ */
+
+body {
+  margin: 0;
+  color: #244751;
+  background-color: #eee;
+}
+
+div {
+  z-index: 40;
+  height: 100vh;
+}
+
+.container {
+  width: 450px;
+  top: 60px;
+  margin: 0px auto 0px auto;
+  position: relative;
+  color: white;
+  background-color: white;
+  height: 100vh;
+  z-index: 1;
+}
+
+
+.new-tweet {
+ 
+  top: 60px;
+  border: 1px solid #a8a8a8;
+  border-radius: 10px;
+  margin: 0px 2em 0px 2em;
+  position: relative;
+  color: #244751;
+  background-color: #eee;
+  height: 12em;
+  z-index: 1;
+}
+
+/* .tweet {
+ 
+  top: 80px;
+  border: 1px solid #a8a8a8;
+  border-radius: 15px;
+  margin: 0px 2em 0px 2em;
+  position: relative;
+  color: #244751;
+  background-color: #eee;
+  height: 12em;
+  z-index: 1;
+} */
+
+.new-tweet h2 {
+  border-style: solid;
+  border-width: 0px 0px 2px 0px;
+  /* padding-left: 15px;
+  padding-right: 15px; */
+  margin: 20px 20px 20px 20px;
+}
+
+
+/*
+ * Additional CSS can be defined below or in other CSS files, as per instructions
+ */
+
+  

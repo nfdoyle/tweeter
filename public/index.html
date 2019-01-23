@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta Information -->
+    <title>Tweeter - Home Page</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+
+    <!-- Roboto Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,700,700i" rel="stylesheet">
+
+    <!-- App CSS -->
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+    <!-- App NAV CSS -->
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+
+    <!-- App new-Tweet CSS -->
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+
+    <!-- App Tweet CSS -->
+    <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
+
+    <!-- External JS -->
+    <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
+
+    <!-- App JS -->
+    <script type="text/javascript" src="/scripts/app.js"></script>
+
+    <!-- Text-counter JS -->
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Top nav bar (fixed) -->
+    <nav id="nav-bar">
+      <img class="logo" src="/images/bird.png" width="80px" height="80px">
+      <span class="header">Tweeter</span>
+    </nav>
+
+    <!-- Page-specific (main) content here -->
+    <main class="container">
+      <div>
+          <section class="new-tweet">
+              <h2>Compose Tweet</h2>
+              <form class="tweetform" action="/tweets" method="POST" >
+                <textarea id="tweetform-actual" class="tweetform" name="text" placeholder="What are you humming about?"></textarea>
+                <input id="tweet-btn" type="submit" value="Tweet">
+                <span class="counter">140</span>
+              </form>
+          </section>
+          
+            <article class="tweet">
+                <img class="logo" src="https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png" width="50px" height="50px">
+                <h2>Compose Tweet</h2>
+            </article>
+          
+        </div>
+      
+    </main>
+
+  </body>
+</html>
