@@ -1,20 +1,27 @@
 $(function() {
   // --- our code goes here ---
-  console.log("document ready!");
+  console.log("hover ready!");
   
   let tweet = $(`article`);
   let header = $(`.tweet header`)
 
+  console.log(tweet);
+  console.log(header);
+
+  tweet.click(function() {
+    alert(`${event.target.localName} was ${event.type}ed`);
+  });
+
   tweet.on({
     mouseenter: function () {
         //stuff to do on mouse enter
-        //alert(`${event.target.localName} was ${event.type}ed`);
+        alert(`${event.target.localName} was ${event.type}ed`);
         $(this).css('border', '1px solid #a8a8a8');
         $(this).children(header).css('opacity', '1');
     },
     mouseleave: function () {
         //stuff to do on mouse leave
-        //alert(`${event.target.localName} was ${event.type}ed`);
+        alert(`${event.target.localName} was ${event.type}ed`);
         $(this).css('border', '1px solid #eee');
         $(this).children(header).css('opacity', '0.7');
     }

@@ -26,11 +26,23 @@ const DataHelpers = require("./lib/data-helpers.js")(db);
 // so it can define routes that use it to interact with the data layer.
 const tweetsRoutes = require("./routes/tweets")(DataHelpers);
 
-app.post("/tweets", (req, res) => {
-  //logic to create to url database entry
+// const userHelper = require("./lib/util/user-helper.js");
 
-  res.redirect(`/`)       
-});
+// app.post("/tweets", (req, res) => {
+//   //logic to create to url database entry
+//   const content = req.body.content;
+//   const tweet = {
+//     id: Math.random(),
+//     username: names[Math.floor(names.length*Math.random())],
+//     content
+//   }
+//   db.tweets.push(tweet);
+//   res.redirect('/');     
+// });
+
+// app.get('/tweets', (req, res) => {
+//   res.send(db.tweets);
+// });
 
 app.get(`/`, (req, res) => {
   //logic to create to url database entry

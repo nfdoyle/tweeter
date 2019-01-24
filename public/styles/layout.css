@@ -24,6 +24,18 @@ body {
 div {
   z-index: 40;
   height: 100vh;
+  background-color: white;
+}
+
+#bg {
+  width: 450px;
+  top: 60px;
+  margin: 0px auto 0px auto;
+  position: fixed;
+  color: white;
+  background-color: white;
+  height: 100vh;
+  z-index: -11;
 }
 
 .container {
@@ -70,6 +82,10 @@ div {
   /* padding-left: 15px;
   padding-right: 15px; */
   margin: 20px 20px 20px 20px;
+}
+
+#tweet-section {
+  height: 100vh;
 }
 
 
