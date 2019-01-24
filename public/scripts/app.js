@@ -97,6 +97,7 @@ $(() => {
 
   $("#compose").click(function(){
     $(".new-tweet").slideToggle(`slow`);
+    $(`#tweetform-actual`).focus();
   });
 
   
@@ -129,12 +130,31 @@ $(() => {
     console.log(event);
     console.log(event.target.innerText);
     event.preventDefault();
-    
+    //target.children[3].innerText
     const serialized = $(this).serialize();
     console.log("tweet: " + serialized);
-    if (event.target.innerText == 140 || event.target.innerText < 0){
+    
+    if (event.target.children[2].innerText == 140 || event.target.children[2].innerText < 0){
       alert(`Invalid tweet. Submissions can range from 0 to 140 characters.`);
+      //error
+      console.log(event.target.children[2]);
+      if (event.target.children[2].innerText == '140'){
+        let errorMessage = $(`.error`);
+        errorMessage.slideUp(`fast`, function(){
+        errorMessage[0].innerHTML = `Can not be 0 characters`;
+        });      
+       errorMessage.slideDown(`slow`);
+      } else {
+        let errorMessage = $(`.error`);
+        errorMessage.slideUp(`fast`, function(){
+        errorMessage[0].innerHTML = `Must be under 140 characters`;
+        });      
+        errorMessage.slideDown(`slow`);
+      }
+      
     } else {
+      let errorMessage = $(`.error`);
+      errorMessage.slideUp(`slow`);
       $.ajax({
         method: "POST",
         url: "/tweets",

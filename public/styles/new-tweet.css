@@ -28,6 +28,20 @@
   padding-top: 0px;
 }
 
+#tweet-btn {
+  top: 2px;
+  position: relative;
+}
+
+.error {
+  float: right;
+  position: absolute;
+  
+  bottom: -8px;
+  right: 70px;
+  color: crimson;
+}
+
 textarea {
   resize: none;
   padding-right: 10px;

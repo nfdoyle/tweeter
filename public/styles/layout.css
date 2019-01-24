@@ -38,6 +38,7 @@ body {
   top: 10px;
   border: 1px solid #244751;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 #compose:hover {
