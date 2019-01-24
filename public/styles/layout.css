@@ -21,6 +21,41 @@ body {
   background-color: #eee;
 }
 
+#compose p {
+  margin: auto auto auto auto;
+  font-size: 0.75em;
+  color: #00a087;
+  top: 15px;
+  position: relative;
+}
+
+#compose {
+  float: right;
+  position: relative;
+  background-color: #e7fdff;
+  width: 120px;
+  height: 60px;
+  top: 10px;
+  border: 1px solid #244751;
+  border-radius: 10px;
+}
+
+#compose:hover {
+  float: right;
+  position: relative;
+  background-color: #eee;
+  color: #244751;
+  width: 120px;
+  height: 60px;
+  top: 10px;
+  border: 1px solid #244751;
+  border-radius: 10px;
+}
+
+#compose:hover p {
+  color: #244751;
+}
+
 div {
   z-index: 40;
   height: 100vh;

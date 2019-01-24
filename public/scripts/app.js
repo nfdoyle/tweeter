@@ -74,7 +74,7 @@ $(() => {
 
       // Test / driver code (temporary)
       console.log($tweet); // to see what it looks like
-      $('#tweet-section').append($tweet);
+      $('#tweet-section').prepend($tweet);
     });
   }
 
@@ -94,6 +94,10 @@ $(() => {
   }
 
   getAllTweets();
+
+  $("#compose").click(function(){
+    $(".new-tweet").slideToggle(`slow`);
+  });
 
   
 
@@ -118,17 +122,26 @@ $(() => {
     //   getAllTweets();
     // });
 
-
+    
   //});
 
   $(".tweetform").on('submit', function(event) {
+    console.log(event);
+    console.log(event.target.innerText);
     event.preventDefault();
+    
     const serialized = $(this).serialize();
-    $.ajax({
-      method: "POST",
-      url: "/tweets",
-      data: serialized
-    })
+    console.log("tweet: " + serialized);
+    if (event.target.innerText == 140 || event.target.innerText < 0){
+      alert(`Invalid tweet. Submissions can range from 0 to 140 characters.`);
+    } else {
+      $.ajax({
+        method: "POST",
+        url: "/tweets",
+        data: serialized
+      })
+      getAllTweets();
+    }
     getAllTweets();
   });
 
