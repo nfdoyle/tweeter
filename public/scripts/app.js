@@ -78,7 +78,9 @@ $(() => {
     const p2 = $('<p>').text(tweet.content.text).appendTo(div);
     const footer = $('<footer>').addClass("timecode").appendTo(article);
     const p3 = $('<p>').text(timeCodeConvert(tweet.created_at)).appendTo(footer);
-    
+    const report = $('<i>').addClass(`fas fa-flag`).addClass(`tweet-btn`).appendTo(footer);
+    const retweet = $('<i>').addClass(`fas fa-retweet`).addClass(`tweet-btn`).appendTo(footer);
+    const like = $('<i>').addClass(`fas fa-heart`).addClass(`tweet-btn`).appendTo(footer);
     return article
   }
 
