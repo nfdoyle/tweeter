@@ -45,13 +45,27 @@
 //       "handle": "@johann49"
 //     },
 //     "content": {
-//       "text": "Es ist nichts schrecklicher als eine tätige Unwissenheit."
+//       "text": "Es ist nichts schrecklicher als eine tätige Unwi{ssenheit."
 //     },
 //     "created_at": 1461113796368
 //   }
 // ]
 
 $(() => {
+
+  function timeCodeConvert(unixTime){
+    let currentTime = Date.now();
+    let time = currentTime - unixTime;
+    time = time/1000/60/60/24;
+    if (time <= 1){
+      return `Today`
+    }else if (time < 2){
+      return `1 day ago`
+    } else {
+      let result = Math.floor(time) + " days ago"
+      return result
+    } 
+  }
 
   function createTweetElement(tweet){
     //do biz
@@ -63,7 +77,7 @@ $(() => {
     const div = $('<div>').appendTo(article);
     const p2 = $('<p>').text(tweet.content.text).appendTo(div);
     const footer = $('<footer>').addClass("timecode").appendTo(article);
-    const p3 = $('<p>').text(tweet.created_at).appendTo(footer);
+    const p3 = $('<p>').text(timeCodeConvert(tweet.created_at)).appendTo(footer);
     
     return article
   }
@@ -159,7 +173,12 @@ $(() => {
         method: "POST",
         url: "/tweets",
         data: serialized
-      })
+      }).done(function() {
+        // on success, refresh the creaks on the page
+        getAllTweets();
+
+      });
+
       getAllTweets();
     }
     getAllTweets();
