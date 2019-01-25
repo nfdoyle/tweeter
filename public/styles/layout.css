@@ -25,6 +25,7 @@ body {
   margin: 0;
   color: #244751;
   background-color: #eee;
+  width: 100vw;
 }
 
 #compose p {
@@ -92,7 +93,7 @@ div {
   position: fixed;
   color: white;
   background-color: white;
-  height: 100vh;
+  height: 120vh;
   z-index: -11;
 }
 

@@ -78,9 +78,9 @@ $(() => {
     const p2 = $('<p>').text(tweet.content.text).appendTo(div);
     const footer = $('<footer>').addClass("timecode").appendTo(article);
     const p3 = $('<p>').text(timeCodeConvert(tweet.created_at)).appendTo(footer);
-    const report = $('<i>').addClass(`fas fa-flag`).addClass(`tweet-btn`).appendTo(footer);
-    const retweet = $('<i>').addClass(`fas fa-retweet`).addClass(`tweet-btn`).appendTo(footer);
-    const like = $('<i>').addClass(`fas fa-heart`).addClass(`tweet-btn`).appendTo(footer);
+    const report = $('<i>').addClass(`fas fa-flag`).addClass(`tweet-btn`).addClass(`report-btn`).appendTo(footer);
+    const retweet = $('<i>').addClass(`fas fa-retweet`).addClass(`tweet-btn`).addClass(`retweet-btn`).appendTo(footer);
+    const like = $('<i>').addClass(`fas fa-heart tweet-btn like-btn`).data( "liked", false ).appendTo(footer);
     return article
   }
 
@@ -91,6 +91,22 @@ $(() => {
       // Test / driver code (temporary)
       console.log($tweet); // to see what it looks like
       $('#tweet-section').prepend($tweet);
+    });
+    $(".like-btn").click(function(){
+      let likeButton = $(this);
+      if (likeButton.data( "liked" ) == false){
+        // post liked
+        likeButton.data("liked", true);
+        likeButton.css('color', 'firebrick');
+      } else {
+        // post unliked
+        likeButton.data("liked", false);
+        likeButton.css('color', '#00a087');
+        
+      }
+      // console.log(likeButton);
+      // console.log(event);
+      // alert(`${event.target.localName} was ${event.type}ed`);
     });
   }
 
@@ -118,6 +134,8 @@ $(() => {
 
   
 
+  
+
   // $(".tweetform").on('submit', function(event) {
   //   // prevent the default behavor
   //   event.preventDefault();
@@ -141,6 +159,8 @@ $(() => {
 
     
   //});
+
+  
 
   $(".tweetform").on('submit', function(event) {
     console.log(event);
@@ -169,6 +189,8 @@ $(() => {
       }
       
     } else {
+      $(`.tweetform`).val("");
+      //$(`.counter`).innerText(`140`);
       let errorMessage = $(`.error`);
       errorMessage.slideUp(`slow`);
       $.ajax({

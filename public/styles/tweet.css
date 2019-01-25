@@ -45,6 +45,21 @@ section .logo {
 }
 
 article:hover .tweet-btn {
+  opacity: 0.6;
+  float: right;
+  position: relative;
+  bottom: 30px;
+  right: 15px;
+  font-size: 1.5em;
+  margin: 0px 2px 0px 2px;
+  color: #00a087;
+}
+
+.tweet-btn .liked {
+  color: firebrick;
+}
+
+article .tweet-btn:hover {
   opacity: 1;
   float: right;
   position: relative;
@@ -52,16 +67,18 @@ article:hover .tweet-btn {
   right: 15px;
   font-size: 1.5em;
   margin: 0px 2px 0px 2px;
+  color: #00a087;
 }
 
 .tweet-btn {
-  opacity: 0.2;
+  opacity: 0.1;
   float: right;
   position: relative;
   bottom: 30px;
   right: 15px;
   font-size: 1.5em;
   margin: 0px 2px 0px 2px;
+  color: #00a087;
 }
 
 .tweet div p {
