@@ -5,16 +5,6 @@ const chance = new Chance();
 
 const md5 = require('md5');
 
-
-function generateRandomString() {
-  var text = "";
-  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-  for(var i = 0; i < 10; i++) {
-      text += possible.charAt(Math.floor(Math.random() * possible.length));
-  }
-  return text;
-}
-
 module.exports = {
 
   generateRandomUser: () => {
@@ -47,8 +37,7 @@ module.exports = {
     return {
       name: userName,
       handle: userHandle,
-      avatars: avatars,
-      tuid: generateRandomString()
+      avatars: avatars
     };
   }
 };

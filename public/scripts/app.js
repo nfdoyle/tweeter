@@ -69,6 +69,8 @@ $(() => {
 
   function createTweetElement(tweet){
     //do biz
+    console.log(`tweet object`);
+    console.log(tweet);
     const article = $('<article>').addClass("tweet");
     const header = $('<header>').appendTo(article);
     const avatar = $('<img>').addClass("logo").attr('src', `${tweet.user.avatars.small}`).attr('width', '50px').attr('height', '50px').appendTo(header);
@@ -81,6 +83,7 @@ $(() => {
     const report = $('<i>').addClass(`fas fa-flag`).addClass(`tweet-btn`).addClass(`report-btn`).appendTo(footer);
     const retweet = $('<i>').addClass(`fas fa-retweet`).addClass(`tweet-btn`).addClass(`retweet-btn`).appendTo(footer);
     const like = $('<i>').addClass(`fas fa-heart tweet-btn like-btn`).data( "liked", false ).appendTo(footer);
+    const likeCount = $('<h3>').text(tweet.likes).data("t-id", tweet.tuid).addClass(`like-count`).appendTo(footer);
     return article
   }
 
@@ -94,15 +97,42 @@ $(() => {
     });
     $(".like-btn").click(function(){
       let likeButton = $(this);
+      let current;
       if (likeButton.data( "liked" ) == false){
         // post liked
         likeButton.data("liked", true);
         likeButton.css('color', 'firebrick');
+        let likeCounter = likeButton.siblings(`.like-count`);
+        likeCounter.slideToggle(`slow`, function(){
+          current = Number(likeCounter[0].innerText);
+          current += 1;  
+          likeCounter[0].innerHTML = current;  
+          likeCounter.slideToggle(`slow`);        
+        });
+        // ajax like put
+        $.ajax({
+          method: "PUT",
+          url: "/like"
+        })
+        
+        console.log(likeCounter);
       } else {
         // post unliked
         likeButton.data("liked", false);
         likeButton.css('color', '#00a087');
-        
+        let likeCounter = likeButton.siblings(`.like-count`);
+        likeCounter.slideToggle(`slow`, function(){
+          current = Number(likeCounter[0].innerText);
+          current -= 1;  
+          likeCounter[0].innerHTML = current;  
+          likeCounter.slideToggle(`slow`);  
+        });
+        //ajax unlike put
+        $.ajax({
+          method: "GET",
+          url: "/unlike"
+        })
+
       }
       // console.log(likeButton);
       // console.log(event);
