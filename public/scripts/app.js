@@ -69,8 +69,6 @@ $(() => {
 
   function createTweetElement(tweet){
     //do biz
-    console.log(`tweet object`);
-    console.log(tweet);
     const article = $('<article>').addClass("tweet");
     const header = $('<header>').appendTo(article);
     const avatar = $('<img>').addClass("logo").attr('src', `${tweet.user.avatars.small}`).attr('width', '50px').attr('height', '50px').appendTo(header);
@@ -92,7 +90,6 @@ $(() => {
       var $tweet = createTweetElement(tweet);
 
       // Test / driver code (temporary)
-      console.log($tweet); // to see what it looks like
       $('#tweet-section').prepend($tweet);
     });
     $(".like-btn").click(function(){
@@ -134,9 +131,7 @@ $(() => {
         })
 
       }
-      // console.log(likeButton);
-      // console.log(event);
-      // alert(`${event.target.localName} was ${event.type}ed`);
+      
     });
   }
 
@@ -165,43 +160,11 @@ $(() => {
     $(`#tweetform-actual`).focus();
   });
 
-  
 
-  
-
-  // $(".tweetform").on('submit', function(event) {
-  //   // prevent the default behavor
-  //   event.preventDefault();
-  //   // get the data from the form
-  //   // const content = $(this).find('input').val();
-  //   // ajax post request
-  //   const serialized = $(this).serialize();
-  //   console.log(serialized);
-  //   $.ajax({
-  //     method: "POST",
-  //     url: "/tweets",
-  //     data: serialized
-  //   })
-
-
-    // .done(function() {
-    //   // on success, refresh the creaks on the page
-    //   console.log(serialized);
-    //   getAllTweets();
-    // });
-
-    
-  //});
-
-  
 
   $(".tweetform").on('submit', function(event) {
-    console.log(event);
-    console.log(event.target.innerText);
     event.preventDefault();
-    //target.children[3].innerText
     const serialized = $(this).serialize();
-    console.log("tweet: " + serialized);
     
     if (event.target.children[2].innerText == 140 || event.target.children[2].innerText < 0){
       //error decision logic
