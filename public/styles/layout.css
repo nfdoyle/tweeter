@@ -120,6 +120,7 @@ div {
   background-color: #eee;
   height: 12em;
   z-index: 1;
+  visibility: hidden;
 }
 
 /* .tweet {

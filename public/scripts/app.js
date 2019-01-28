@@ -129,7 +129,7 @@ $(() => {
         });
         //ajax unlike put
         $.ajax({
-          method: "GET",
+          method: "PUT",
           url: "/unlike"
         })
 
@@ -141,6 +141,9 @@ $(() => {
   }
 
   // renderTweets(tweets);
+  $(".new-tweet").slideUp(`fast`, function(){
+    $(this).css("visibility", "visible");
+  });
 
   const allTweets = $('#tweet-section');
 
@@ -201,9 +204,7 @@ $(() => {
     console.log("tweet: " + serialized);
     
     if (event.target.children[2].innerText == 140 || event.target.children[2].innerText < 0){
-      alert(`Invalid tweet. Submissions can range from 0 to 140 characters.`);
-      //error
-      console.log(event.target.children[2]);
+      //error decision logic
       if (event.target.children[2].innerText == '140'){
         let errorMessage = $(`.error`);
         errorMessage.slideUp(`fast`, function(){
@@ -220,6 +221,7 @@ $(() => {
       
     } else {
       $(`.tweetform`).val("");
+      event.target.children[2].innerText = 140;
       //$(`.counter`).innerText(`140`);
       let errorMessage = $(`.error`);
       errorMessage.slideUp(`slow`);
